@@ -1,0 +1,105 @@
+#BÖLÜM 1:VERİ TİPLERİ
+#******SORU1*****
+"""
+ad=input("adınız:")
+yas=int(input("yaşınız:"))
+boy=float(input("boyunuz(cm):"))
+print(ad,"adlı kullanıcı",yas,"yaşında",boy ,"cm boyundadır." )
+
+#********SORU2************
+print("sınav notlarınızı giriniz..")
+mat=int(input("Matematik:"))
+fiz=int(input("Fizik:"))
+kim=int(input("Kimya:"))
+
+ort=float((mat+fiz+kim)/3)
+print("Girilen derslerin ortalaması:",ort)
+
+#***********SORU3*******************
+ad="ayşenur"
+print("ilk karakter:",ad[0])
+print("son karakter:",ad[-1])
+print("uzunluk:",len(ad))
+print("ters:",ad[::-1])
+
+#BÖLÜM2: OPERATÖRLER
+#******************SORU4*********************
+sayi1=float(input("sayi1:"))
+sayi2=float(input("sayi2:"))
+
+print("Girilen sayıların toplamı:",sayi1+sayi2)
+print("Girilen sayıların farkı:",sayi1-sayi2)
+print("Girilen sayıların çarpımı:",sayi1*sayi2)
+print("Girilen sayıların bölümü:",sayi1/sayi2)
+print("Mod alma:",sayi1%sayi2)
+
+#SORU5:
+ort=float(input("lutfen ortalamanızı giriniz:"))
+if ort>50 and ort<=100:
+    print("Geçti..")
+elif ort<=50 and ort>0:
+    print("kaldı..")
+else:
+    print("Geçersiz not girişi yaptınız.. Lütfen ortalamanızı doğru giriniz..")
+
+#SORU6:
+yas=int(input("lütfen yaşınızı giriniz:"))
+if yas>18 and yas<100:
+    print("Tebrikler! Ehliyet alabilirsiniz..")
+elif yas<=18 and yas>0:
+    print("Ehliyet alamazsınız...")
+else:
+    print("lütfen yaşınızı doğru girdiğinizden emin olunuz..")
+    
+#SORU7:
+fiyat=float(input("ürünün fiyatını girin:"))
+ind_orani=float(input("bu ürün için indirim oranı(yüzde) nedir?:"))
+indirimli_f=fiyat*((100-ind_orani)/100)
+print("indirimli fiyat:",indirimli_f)
+
+#SORU8:
+
+a = True
+b = False
+
+print("a =", a)
+print("b =", b)
+print("***************************")
+
+print("a and b =", a and b)   
+print("a and a =", a and a)   
+print("b and b =", b and b)   
+
+
+print("a or b =", a or b)     
+print("b or b =", b or b) 
+print("a or a =", a or a)     
+
+
+print("not a =", not a)      
+print("not b =", not b)       
+
+#SORU9:
+print("*******Alışveriş sepeti uygulamasına hoşgeldiniz***********")
+urun1=float(input("1. ürünün fiyatı:"))
+urun2=float(input("2.ürünün fiyatı:"))
+urun3=float(input("3.ürünün fiyatı:"))
+top_fiyat=urun1+urun2+urun3
+
+if top_fiyat>200:
+    top_tutar=top_fiyat*0.9
+    print("Tebrikler %10 indirim kazandınız.Toplam tutarınız:",top_tutar)
+else:
+    print("%10 indirim kazanmak için 200 TL alışveriş tutarını doldurunuz")
+"""
+#SORU10: 
+dogum_yili=int(input("Doğum yılınızı giriniz:"))
+yas=2025-dogum_yili
+if yas>0 and yas<=12:
+    print("Çocuksunuz")
+elif yas>=13 and yas<=17:
+    print("Ergensiniz")
+elif yas>18:
+    print("Yetişkinsiniz")
+else:
+    print("geçersiz işlem....")
