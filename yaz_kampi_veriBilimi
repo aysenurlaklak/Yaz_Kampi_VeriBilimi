@@ -1,0 +1,241 @@
+"""
+Soru 1  Sayı Analizi
+Kullanıcıdan bir sayı isteyin.
+• Sayı pozitif, negatif ya da sıfır mı kontrol edin.
+• Aynı zamanda tek/çift olup olmadığını da belirtin.
+• Çıktı örneği: "Pozitif Çift" veya "Negatif Tek" gibi.
+
+sayi= int(input("lutfen bir sayi giriniz:"))
+if sayi>0:
+    if sayi%2==0:
+        print("girilen sayi pozitif cift ")
+    else:
+        print("girilen sayi pozitif tektir...")
+elif sayi<0:
+     if sayi%2==0:
+        print("girilen sayi negatif cift ")
+     else:
+        print("girilen sayi negatif tektir...")
+else:
+    print("girilen sayi sifirdir..")
+#******************************************************************
+
+Soru 2  Harf Frekansı (String)
+Kullanıcıdan bir kelime alın.
+• Hangi harften kaç tane geçtiğini bulun.
+• Sonucu dictionary olarak gösterin.
+Örnek: "data" → {'d': 1, 'a': 2, 't': 1}
+
+kelime=input("lutfen bir kelime giriniz:")
+harf_sayisi={} #bos dict
+for harf in kelime:
+    if harf in harf_sayisi:
+        harf_sayisi[harf]+=1
+    else:
+        harf_sayisi[harf]=1
+print(harf_sayisi)
+#********************************************************************
+Soru 3  Şifre Kontrolü (String Metotları)
+Kullanıcıdan şifre girmesini isteyin. Şifre:
+• En az 8 karakter olmalı
+• En az 1 büyük harf içermeli #isupper ile 
+• En az 1 rakam içermeli #isdigit
+Koşulları sağlayıp sağlamadığına göre kullanıcıyı bilgilendirin.
+
+
+
+while True:
+    sifre=input("lutfen sifrenizi olusturun:")
+    bharf_kontrol=False
+    for i in sifre:
+            if i.isupper():
+                bharf_kontrol=True
+                break
+
+    rakam_kontrol=False  
+    for rakam in sifre:
+        if rakam.isdigit():
+            rakam_kontrol=True
+            break   
+   
+    
+
+    if len(sifre)>=8 and bharf_kontrol==True and rakam_kontrol==True:
+        print("sifreniz basariyla olusturulmustur..")
+        break
+    else:
+        if (len(sifre)<8):
+            print("sifre uzunlugu en az 8 karakter olmalidir..")
+
+        if bharf_kontrol==False:
+            print("sifreniz en az 1 buyuk harf icermelidir..")
+        
+        if rakam_kontrol==False:
+            print("sifreniz en az 1 rakam icermelidir..")
+#*******************************************************************
+Soru 4 Liste İşlemleri
+[12, 4, 9, 25, 30, 7, 18] listesini kullanın.
+• Listenin ortalamasını bulun.
+• Ortalamadan büyük sayıları ayrı bir listeye atın.
+• Sonucu ekrana yazdırın
+
+listemiz=[12, 4, 9, 25, 30, 7, 18]
+yeni_liste=[]
+ort=sum(listemiz)/len(listemiz)
+print("listenin ortalamasi:",ort)
+
+for sayi in listemiz:
+    if sayi>ort:
+        yeni_liste.append(sayi)
+print(yeni_liste)
+#********************************************************************
+
+
+Soru 5  Nested Loop (Desen)
+
+for i in range(1,6):
+    for j in range(1,i+1):
+        print("*",end="") #end aynı satırda yazdırır
+    print() #burada alt satıra gecildi..
+    
+#python print çağrısı ile otomatik olarak alt satıra geçer.. satır sonuna \n ekliyor direkt...
+#*********************************************************************
+Soru 6  While Döngüsü
+Kullanıcıdan sürekli sayı isteyin.
+• Kullanıcı 0 girdiğinde program dursun.
+• Girilen tüm sayıların toplamını ve ortalamasını yazdırın.
+
+sayilar=[]
+while True:
+    
+    sayi=int(input("sayi:")) #casting unutma!!!!
+    
+    if sayi==0:
+        break
+    else:
+        sayilar.append(sayi)
+#hiç sayı girilmeme ihitmalinin kontrol edilmesi gerekiyor...
+if len(sayilar)>0:
+    top=sum(sayilar)
+    ort=top/len(sayilar)
+    print(sayilar)
+    print("sayilar toplami:",top)
+    print("ortalama:",ort)
+else:
+    print("Programdan Cikiliyor..")   
+
+#*******************************************************************
+
+Soru 7  Palindrom Kontrolü
+Kullanıcıdan bir kelime isteyin.
+• Kelimenin palindrom olup olmadığını kontrol edin.
+• Örnek: "kayak" → Palindrom , "python" → Değil 
+
+
+print("palindrom kelime kontrol programina hosgeldiniz....")
+kelime=input("kontrol etmek istediginiz kelimeyi giriniz:")
+ters_kelime=kelime[::-1]
+print("kelimenin tersi:",ters_kelime)
+if kelime == ters_kelime:
+    print("Girilen kelime palindromdur")
+else:
+    print("Bu kelime palindrom değildir...")
+#********************************************************************
+Soru 8  List Comprehension(kavrama)
+1’den 100’e kadar olan sayılardan:
+• Hem 3’e hem 5’e bölünebilenlerin karelerini içeren bir liste oluşturun.
+• Sonucu ekrana yazdırın.
+
+sayilar=[]
+for sayi in range(1,101):
+    if sayi%3==0 and sayi%5==0:
+        sayilar.append(sayi**2)
+        
+print(sayilar)
+#*************************************************************************
+Soru 9 String İşlemleri
+Bir cümle alın.
+• Cümledeki kelimeleri split() ile ayırın.
+• Her kelimenin ilk harfini büyük yaparak yeni bir string oluşturun.
+• Örnek: "python veri bilimi" → "Python Veri Bilimi"
+
+kelimeler=[]
+yeni_kelimeler=[]
+cumle=input("Lutfen bir cumle giriniz:")
+kelimeler=cumle.split()
+#print(kelimeler)
+
+for kelime in kelimeler:
+    yeni_kelimeler.append(kelime.capitalize())
+    
+#print(yeni_kelimeler)
+
+for yeni_k in yeni_kelimeler:
+    print(yeni_k , " ",end="")
+
+#****************************************************************************************
+
+Mini Proje Film Yorumu Analizi
+Proje Tanımı:
+Kullanıcıdan birkaç film yorumu alın (örneğin 5/6 yorum).
+- Yorumları bir listeye atın.
+- Her yorumun uzunluğunu (karakter sayısı) bulun.
+- Kaç yorumda "iyi" kelimesi geçtiğini sayın.
+- En uzun yorumu ve en kısa yorumu ekrana yazdırın.
+
+
+"""
+yorumlar=[]
+yorumlar2=[]
+print("FİLM YORUMU ANALİZ PROGRAMIMIZA HOSGELDİNİZ...")
+print("**************************************************************")
+print("Size daha iyi sonuclar verebilmek için film hakkında birkaç yorumu virgülle ayırarak giriniz... ")
+yorumlar=input("Haydi başlayalım! : ")
+#print(yorumlar)
+
+yorumlar2=yorumlar.split(',')
+#print(yorumlar2)
+
+yorum_uzunluk=[]
+for i in yorumlar2:
+    yorum_uzunluk.append(len(i))
+
+iyi_sayisi=0
+for i_s in yorumlar2:
+    if "iyi" in i_s:
+        iyi_sayisi+=1
+        
+print("yorumların uzunlukları",yorum_uzunluk)
+print("toplam yorum sayisi:",len(yorumlar2))
+print(f"yorumlardan {iyi_sayisi} tanesinde iyi kelimesi geçmektedir.")
+
+en_uzun=max(yorumlar2,key=len) #burada key anahtar kelimesi ile karakter sayısının uzunluğuna göre max hesaplama yapacak eğer koymazsak max alfabetiğe göre sıralamaya bakacak
+en_kısa=min(yorumlar2,key=len)
+
+print("en uzun yorum:",en_uzun)
+print("en kısa yorum:", en_kısa)
+
+ort=sum(yorum_uzunluk)/len(yorumlar2)
+print(f"ortalama uzunluk:{ort} karakter")
+
+
+
+
+    
+    
+
+   
+ 
+
+    
+
+
+
+        
+
+
+    
+    
+    
+   
+    
