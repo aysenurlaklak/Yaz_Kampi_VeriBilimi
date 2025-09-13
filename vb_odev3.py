@@ -173,9 +173,17 @@ SORU-10
 
 
 
+
 """
+import numpy as np
+matris=np.random.rand(5,5)
+print("matris:\n",matris)
 
+sutun_ort = np.mean(matris, axis=0)
+print("\nSütun ortalamaları:", sutun_ort)
 
+binary_matris = (matris > 0.5).astype(int)
+print("\nBinary matris:\n", binary_matris)
 
 
     
